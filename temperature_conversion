@@ -1,0 +1,90 @@
+// C program to print a Celsius–Fahrenheit
+// temperature conversion table //
+// F = (C × 9/5) + 32 //
+// C = (F − 32) × 5/9 //
+
+#include <stdio.h>
+
+// Function to convert Celsius to Fahrenheit //
+float celsiusToFahrenheit(float celsius)
+{
+    return (celsius * 9 / 5) + 32;
+}
+
+// Function to convert Fahrenheit to Celsius //
+float fahrenheitToCelsius(float fahrenheit)
+{
+    return (fahrenheit - 32) * 5 / 9;
+}
+
+// Function to print table header //
+void printHeader(char mode)
+{
+    if (mode == 'C')
+    {
+        printf("\n-------------------------------------\n");
+        printf(" Celsius → Fahrenheit Conversion Table\n");
+        printf("-------------------------------------\n");
+        printf("   Celsius (°C)     Fahrenheit (°F)\n");
+        printf("-------------------------------------\n");
+    }
+    else
+    {
+        printf("\n-------------------------------------\n");
+        printf(" Fahrenheit → Celsius Conversion Table\n");
+        printf("-------------------------------------\n");
+        printf(" Fahrenheit (°F)     Celsius (°C)\n");
+        printf("-------------------------------------\n");
+    }
+}
+
+// Function to print conversion table //
+void printConversionTable(float start, float end, float step, char mode)
+{
+    printHeader(mode);
+
+    if (mode == 'C')
+    {
+        for (float c = start; c <= end; c += step)
+        {
+            printf("     %6.2f           %8.2f\n", c, celsiusToFahrenheit(c));
+        }
+    }
+    else
+    {
+        for (float f = start; f <= end; f += step)
+        {
+            printf("     %6.2f           %8.2f\n", f, fahrenheitToCelsius(f));
+        }
+    }
+
+    printf("-------------------------------------\n");
+}
+
+// Main function //
+int main()
+{
+    char mode;
+    float start, end, step;
+
+    printf("Enter mode (C for Celsius to Fahrenheit, F for Fahrenheit to Celsius): ");
+    scanf(" %c", &mode);
+
+    printf("Enter start value: ");
+    scanf("%f", &start);
+
+    printf("Enter end value: ");
+    scanf("%f", &end);
+
+    printf("Enter step value: ");
+    scanf("%f", &step);
+
+    if (mode == 'C' || mode == 'c')
+        printConversionTable(start, end, step, 'C');
+    else if (mode == 'F' || mode == 'f')
+        printConversionTable(start, end, step, 'F');
+    else
+        printf("Invalid mode selected.\n");
+
+    return 0;
+}
