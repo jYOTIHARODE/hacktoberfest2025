@@ -1,0 +1,57 @@
+// C program to calculate Simple Interest and Total Amount //
+// Formula: SI = (P × R × T) / 100 //
+
+#include <stdio.h>
+
+// Function to calculate simple interest //
+float calculateSimpleInterest(float principal, float rate, float time)
+{
+    return (principal * rate * time) / 100.0;
+}
+
+// Function to print formatted header //
+void printHeader()
+{
+    printf("\n--------------------------------------------\n");
+    printf("        Simple Interest Calculator\n");
+    printf("--------------------------------------------\n");
+}
+
+// Function to print final results //
+void printResults(float principal, float rate, float time, float interest)
+{
+    float total = principal + interest;
+
+    printf(" Principal Amount : ₹%.2f\n", principal);
+    printf(" Rate of Interest : %.2f%%\n", rate);
+    printf(" Time Period      : %.2f years\n", time);
+    printf("--------------------------------------------\n");
+    printf(" Simple Interest  : ₹%.2f\n", interest);
+    printf(" Total Amount     : ₹%.2f\n", total);
+    printf("--------------------------------------------\n");
+}
+
+int main()
+{
+    float principal, rate, time;
+
+    printHeader();
+
+    // Input section
+    printf(" Enter Principal Amount (₹): ");
+    scanf("%f", &principal);
+
+    printf(" Enter Rate of Interest (%%): ");
+    scanf("%f", &rate);
+
+    printf(" Enter Time (in years): ");
+    scanf("%f", &time);
+
+    // Calculation
+    float interest = calculateSimpleInterest(principal, rate, time);
+
+    // Display result
+    printResults(principal, rate, time, interest);
+
+    return 0;
+}
