@@ -2,19 +2,27 @@ import java.util.Scanner;
 
 public class FactorialIterative {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a non-negative integer: ");
-        int number = scanner.nextInt();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Java Program to Find Factorial of a Number");
 
+        // Read a non-negative integer from the user
+        System.out.print("Enter a non-negative integer: ");
+        int number = sc.nextInt();
+
+        // Check for negative input
         if (number < 0) {
             System.out.println("Factorial is not defined for negative numbers.");
         } else {
-            long factorial = 1; // Use long to handle larger factorials
+            long factorial = 1; // long to handle larger results
+
+            // Iteratively compute factorial
             for (int i = 1; i <= number; i++) {
                 factorial *= i;
             }
+
             System.out.println("Factorial of " + number + " is: " + factorial);
         }
-        scanner.close();
+
+        sc.close();
     }
 }

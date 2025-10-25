@@ -1,18 +1,30 @@
+import java.util.Scanner;
+
 public class NumberReverser {
+
+    // Function to reverse a number
     public static int reverseNumber(int number) {
         int reversed = 0;
         while (number != 0) {
-            int digit = number % 10; // Get the last digit
+            int digit = number % 10;        // Get the last digit
             reversed = reversed * 10 + digit; // Append digit to reversed number
-            number /= 10; // Remove the last digit from the original number
+            number /= 10;                   // Remove the last digit
         }
         return reversed;
     }
 
     public static void main(String[] args) {
-        int originalNumber = 12345;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Java Program to Reverse a Number");
+
+        System.out.print("Enter a number: ");
+        int originalNumber = sc.nextInt();
+
         int reversedNumber = reverseNumber(originalNumber);
+
         System.out.println("Original Number: " + originalNumber);
         System.out.println("Reversed Number: " + reversedNumber);
+
+        sc.close();
     }
 }
